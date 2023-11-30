@@ -37,6 +37,7 @@ The following tools will be utilized to implement CI/CD:
   - **Git:**
     - `sudo apt update`
     - `sudo apt install git`
+![image](https://github.com/sejalmm06/Hello-World-Application/assets/129971092/2aff08e1-fbcc-419f-af1f-bbac069f7b77)
 
   - **Java 11:**
     - `sudo apt update`
