@@ -1,7 +1,7 @@
 def containerName = "helloapp"
 def tag = "latest"
 def dockerHubUser = "sejalmm06"
-def httpPort = "8082"
+def httpPort = "8080"
 node {
 
     stage('Checkout') {
