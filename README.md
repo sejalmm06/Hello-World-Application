@@ -304,4 +304,10 @@ Deploys the application to a Kubernetes cluster
   
 - Created a Grafana dashboar for monitoring metrics.
 - Configured panels for CPU utilization, Disk Space Utilization, and Total Available Memory.
+![image](https://github.com/sejalmm06/Hello-World-Application/assets/129971092/9ddc8d87-2a8c-4c7c-92fc-a80de5f01d98)
+![image](https://github.com/sejalmm06/Hello-World-Application/assets/129971092/5231c621-fd51-41a1-bab5-b1e4b5ea2820)
+![image](https://github.com/sejalmm06/Hello-World-Application/assets/129971092/0a351a97-1c57-4ccf-9cbe-68a650838009)
+
+
+
 
