@@ -281,7 +281,7 @@ Deploys the application to a Kubernetes cluster
 ![image](https://github.com/sejalmm06/Hello-World-Application/assets/129971092/faa9b16e-a0d6-42b1-adcb-18ff0e58d962)
 
 
-## Monitoring
+## Monitor Production Server   
 
 ### Node Exporter Installation
 
@@ -291,12 +291,17 @@ Deploys the application to a Kubernetes cluster
 
 ### Prometheus Configuration
 
-- Updated prometheus.yml file on the Prometheus server for scraping settings.
-- Restarted Prometheus services: `systemctl restart Prometheus`
+- The prometheus.yml file has been opened on the Prometheus server using the nano editor with the command "nano /etc/prometheus/prometheus.yml". The configuration has been updated to include the necessary scraping settings.
+- After saving the changes in the prometheus.yml file, the Prometheus services have been restarted to apply the updated configuration using "systemctl restart Prometheus" command
+![image](https://github.com/sejalmm06/Hello-World-Application/assets/129971092/21ba1973-7f3f-4051-9c76-4b96e0ae308b)
 
 ### Grafana Dashboard
 
 - Configured Prometheus as a data source in Grafana.
+- 
+- ![image](https://github.com/sejalmm06/Hello-World-Application/assets/129971092/2e4c9d80-ce34-4537-b6e2-570790138788)
+
+  
 - Created a Grafana dashboar for monitoring metrics.
 - Configured panels for CPU utilization, Disk Space Utilization, and Total Available Memory.
 
