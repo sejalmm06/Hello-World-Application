@@ -4,7 +4,7 @@ metadata:
   name: helloapp-service
 spec:
   selector:
-    app: helloapp 
+    app: helloapp
   ports:
     - protocol: TCP
       port: 8082
