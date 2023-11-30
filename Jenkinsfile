@@ -48,6 +48,10 @@ stage('Run On Test Server') {
         
     }
     
+    stage('Selenium Test') {
+        sleep(time: 80, unit: 'SECONDS') 
+        sh 'sudo java -jar helloworld-runnable-jar.jar'
+    }
  node('172.31.3.201 (kubernetes-master)') {
         stage('Checkout Git Repository') {
             git branch: 'main', url: 'https://github.com/sejalmm06/Hello-World-Application.git'
