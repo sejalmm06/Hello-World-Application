@@ -239,3 +239,57 @@ Runs Selenium tests on the deployed application.
 
 ##### Stage 9: Run on Prod Server
 Deploys the application to a Kubernetes cluster 
+
+# HelloApp Jenkins Pipeline Setup
+
+- Created a pipeline project named HelloApp in Jenkins.
+- Navigated to the Jenkins dashboard, selected "New Item," chose "Pipeline," and saved the project.
+- In the job configuration, the section for build triggers has been located. The webhook trigger option is enabled and selected in the build triggers section of the job configuration, ensuring that the job is automatically triggered based on specific events. 
+
+
+### Pipeline Script:
+
+- Refer to the [Jenkinsfile](Jenkinsfile) for the complete pipeline script.
+
+## Run Pipeline
+
+- The pipeline is automatically triggered by specific events or changes in the source code.
+
+
+## Full Stage View of Medicure-build Pipeline
+
+## Console Outputs
+
+## Dashboard View
+
+
+
+
+### Test Server Verification
+
+- Verified the application after successful deployment on the test server.
+
+### Production Server Verification
+
+- Verified the application after successful deployment on the production server.
+
+
+## Monitoring
+
+### Node Exporter Installation
+
+- Installed Node Exporter on the production server for system-level metric collection.
+- Used the command: `apt update && apt install prometheus-node-exporter`
+- Started Node Exporter service: `systemctl start prometheus-node-exporter`
+
+### Prometheus Configuration
+
+- Updated prometheus.yml file on the Prometheus server for scraping settings.
+- Restarted Prometheus services: `systemctl restart Prometheus`
+
+### Grafana Dashboard
+
+- Configured Prometheus as a data source in Grafana.
+- Created a Grafana dashboar for monitoring metrics.
+- Configured panels for CPU utilization, Disk Space Utilization, and Total Available Memory.
+
