@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: HelloApp-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: HelloApp
+  template:
+    metadata:
+      labels:
+        app: HelloApp
+    spec:
+      containers:
+        - name: HelloApp
+          image: sejalmm06/HelloApp:latest
+          ports:
+            - containerPort: 8082
