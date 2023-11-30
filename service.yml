@@ -7,7 +7,7 @@ spec:
     app: helloapp
   ports:
     - protocol: TCP
-      port: 8082
-      targetPort: 8082
+      port: 8080
+      targetPort: 8080
       nodePort: 30080
   type: NodePort
