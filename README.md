@@ -266,11 +266,13 @@ Deploys the application to a Kubernetes cluster
 - Verified the application after successful deployment on the test server.
 ![image](https://github.com/sejalmm06/Hello-World-Application/assets/129971092/3abf6b43-a8f9-4f51-816b-b1c3c35eaa0d)
 
+
 ### Selenium Tests for Test Server in Eclipse
 - Test code is written to perform the test on the test server. 
 -	The test has been executed by running the project as a Java application. 
 - The test has successfully opened the browser, performed the desired actions, and displayed a successful message in the console output
 - ![image](https://github.com/sejalmm06/Hello-World-Application/assets/129971092/a37383c4-efd8-419a-89b1-263fe172f3bd)
+
 
 
 ### Production Server Verification
