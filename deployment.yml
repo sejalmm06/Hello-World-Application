@@ -16,4 +16,4 @@ spec:
         - name: helloapp
           image: sejalmm06/helloapp:latest
           ports:
-            - containerPort: 8082
+            - containerPort: 8080
