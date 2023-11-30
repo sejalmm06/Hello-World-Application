@@ -211,31 +211,31 @@ The following tools will be utilized to implement CI/CD:
 #### Pipeline Script:  ([Jenkinsfile](Jenkinsfile))
 #### Selenium Test JAR File: [helloworld-runnable-jar.jar](helloworld-runnable-jar.jar)
 
-## Pipeline Flow 
+### Pipeline Flow 
 
-#### Stage 1: Checkout
+##### Stage 1: Checkout
 This stage checks out the source code from the version control system.
 
-#### Stage 2: Build
+##### Stage 2: Build
 Builds the Maven project to compile and package the application.
 
-#### Stage 3: Publish Test Reports
+##### Stage 3: Publish Test Reports
 Publishes HTML test reports generated during the build process.
 
-#### Stage 4: Image Prune
+##### Stage 4: Image Prune
 Cleans up unused Docker images.
 
-#### Stage 5: Image Build
+##### Stage 5: Image Build
 Builds a Docker image for the application.
 
-#### Stage 6: Push to Docker Registry
+##### Stage 6: Push to Docker Registry
 Pushes the Docker image to the Docker registry.
 
-#### Stage 7: Run on Test Server
+##### Stage 7: Run on Test Server
 Executes an Ansible playbook to deploy the application on a testing server.
 
-#### Stage 8: Selenium Test
+##### Stage 8: Selenium Test
 Runs Selenium tests on the deployed application.
 
-#### Stage 9: Run on Prod Server
+##### Stage 9: Run on Prod Server
 Deploys the application to a Kubernetes cluster 
