@@ -50,7 +50,7 @@ stage('Run On Test Server') {
     
  node('172.31.3.201 (kubernetes-master)') {
         stage('Checkout Git Repository') {
-            git branch: 'master', url: 'https://github.com/sejalmm06/Hello-World-Application.git'
+            git branch: 'main', url: 'https://github.com/sejalmm06/Hello-World-Application.git'
         }
 
         stage('Run on Prod Server') {
