@@ -37,8 +37,6 @@ The following tools will be utilized to implement CI/CD:
   - **Git:**
     - `sudo apt update`
     - `sudo apt install git`
-      
-![image](https://github.com/sejalmm06/Hello-World-Application/assets/129971092/2aff08e1-fbcc-419f-af1f-bbac069f7b77)
 
   - **Java 11:**
     - `sudo apt update`
@@ -47,6 +45,19 @@ The following tools will be utilized to implement CI/CD:
   - **Maven:**
     - `sudo apt update`
     - `sudo apt install maven`
+    - 
+ - **Jenkins:**
+    - `wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -`
+    - `sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'`
+    - `sudo apt update`
+    - `sudo apt install jenkins`
+
+    *Jenkins Setup:*
+    - Open Jenkins on the browser: http://[Master Server IP]:8080
+    - Retrieve the Jenkins initial admin password: `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`
+    - Install suggested plugins and set up an admin user.
+      
+![image](https://github.com/sejalmm06/Hello-World-Application/assets/129971092/aec2602d-32dd-4bc3-bad1-8f567f75af39)
 
   - **Ansible:**
     - `sudo apt update && sudo apt install ansible`
@@ -77,17 +88,6 @@ The following tools will be utilized to implement CI/CD:
     - `sudo wget https://chromedriver.storage.googleapis.com/92.0.4515.107/chromedriver_linux64.zip`
     - `sudo unzip chromedriver_linux64.zip -d /usr/bin/`
     - `sudo chmod +x /usr/bin/chromedriver`
-
-  - **Jenkins:**
-    - `wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -`
-    - `sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'`
-    - `sudo apt update`
-    - `sudo apt install jenkins`
-
-    *Jenkins Setup:*
-    - Open Jenkins on the browser: http://[Master Server IP]:8080
-    - Retrieve the Jenkins initial admin password: `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`
-    - Install suggested plugins and set up an admin user.
 
   - **Terraform:**
     - `sudo apt-get install unzip`
@@ -149,7 +149,7 @@ The following tools will be utilized to implement CI/CD:
     - A Prometheus data source has been added to Grafana, enabling it to fetch metrics from Prometheus.
     - A sample dashboard has been created to visualize the metrics collected by Prometheus.
    
-    ### Step 4: Testing Server, Kubernetes Master, and Kubernetes Worker Creation
+   ### Step 4: Testing Server, Kubernetes Master, and Kubernetes Worker Creation
 
 - Terraform is used to provision resources.
 - `main.tf` file defines infrastructure resources.
@@ -185,26 +185,21 @@ The following tools will be utilized to implement CI/CD:
 - Configure essential tools in the "Global Tool Configuration" section.
   - Maven, Git, Terraform, Ansible.
 
-### Credentials Setup
+### Step 3 :Credentials Setup
 
 - Navigate to the "Credentials" page in Jenkins.
 - Add Docker Hub credentials and SSH keys for Ansible.
 
-### Adding Kubernetes Master as Jenkins Slave
+## #Step 4: Adding Kubernetes Master as Jenkins Slave
 
 - Configure Jenkins to connect to the Kubernetes cluster.
 - Utilize Kubernetes as a resource for builds and deployments.
+<img src="https://github.com/sejalmm06/Hello-World-Application/assets/129971092/2b2a5a33-97c7-4ae8-b531-18682eea2976" alt="Image Alt Text" width="800" />
 
-
-### Step 3: Create Jenkins Pipeline
-
-- Create a new pipeline job in Jenkins and configure the pipeline script from the project's Git repository.
-- The pipeline script includes stages for code checkout, compilation, testing, packaging, Docker image creation, Ansible playbook execution, and Kubernetes deployment.
-
-  - Pipeline Script: [Jenkinsfile](Jenkinsfile)
-
+<img src="https://github.com/sejalmm06/Hello-World-Application/assets/129971092/2afb72d9-e1b9-476e-a892-0b1ac6b43b71" alt="Image Alt Text" width="800" />
 
 ### GitHub Repository Setup
+
 #### Dockerfile ([Dockerfile](Dockerfile))
 #### Ansible Playbook File ([ansible-playbook.yml](ansible-playbook.yml))
 #### Ansible Hosts Inventory File ([hosts](hosts))
@@ -213,67 +208,68 @@ The following tools will be utilized to implement CI/CD:
 #### Pipeline Script:  ([Jenkinsfile](Jenkinsfile))
 #### Selenium Test JAR File: [helloworld-runnable-jar.jar](helloworld-runnable-jar.jar)
 
+**Process flow to create and upload helloworld-runnable-jar.jar**
+- Selenium test scripts have been developed, compiled, and exported. They were then packaged into a JAR file using Maven.
+- ![image](https://github.com/sejalmm06/Hello-World-Application/assets/129971092/eef7f0ed-3790-4d58-ac36-6303dc757336)
+- The JAR file has been uploaded to the GitHub repository with a descriptive name and description.
+
+  
 ### Pipeline Flow 
 
 ##### Stage 1: Checkout
 This stage checks out the source code from the version control system.
-
 ##### Stage 2: Build
 Builds the Maven project to compile and package the application.
-
 ##### Stage 3: Publish Test Reports
 Publishes HTML test reports generated during the build process.
-
 ##### Stage 4: Image Prune
 Cleans up unused Docker images.
-
 ##### Stage 5: Image Build
 Builds a Docker image for the application.
-
 ##### Stage 6: Push to Docker Registry
 Pushes the Docker image to the Docker registry.
-
 ##### Stage 7: Run on Test Server
 Executes an Ansible playbook to deploy the application on a testing server.
-
 ##### Stage 8: Selenium Test
 Runs Selenium tests on the deployed application.
-
 ##### Stage 9: Run on Prod Server
 Deploys the application to a Kubernetes cluster 
 
-# HelloApp Jenkins Pipeline Setup
+### HelloApp Jenkins Pipeline Setup
 
 - Created a pipeline project named HelloApp in Jenkins.
 - Navigated to the Jenkins dashboard, selected "New Item," chose "Pipeline," and saved the project.
-- In the job configuration, the section for build triggers has been located. The webhook trigger option is enabled and selected in the build triggers section of the job configuration, ensuring that the job is automatically triggered based on specific events. 
+- ![image](https://github.com/sejalmm06/Hello-World-Application/assets/129971092/136e9a87-9854-44fd-9017-d164920aae5f)
+- ![image](https://github.com/sejalmm06/Hello-World-Application/assets/129971092/b8b226b8-48c1-4b93-832f-1fd67f7e0d81)
 
+- In the job configuration, the section for build triggers has been located. The webhook trigger option is enabled and selected in the build triggers section of the job configuration, ensuring that the job is automatically triggered based on specific events.
+- ![image](https://github.com/sejalmm06/Hello-World-Application/assets/129971092/06e6f4f1-a07e-4904-8bab-18da27942ae0)
+- ![image](https://github.com/sejalmm06/Hello-World-Application/assets/129971092/e17fd4c0-f0d3-400a-a5e1-952b5bfd135d)
 
 ### Pipeline Script:
 
 - Refer to the [Jenkinsfile](Jenkinsfile) for the complete pipeline script.
 
-## Run Pipeline
+## Run Pipeline   -
 
 - The pipeline is automatically triggered by specific events or changes in the source code.
-
-
-## Full Stage View of Medicure-build Pipeline
+- **Full Stage View of Pipeline:**
+  
+![image](https://github.com/sejalmm06/Hello-World-Application/assets/129971092/39f46da6-3ae2-481f-a75e-5c7e5e55bcce)
 
 ## Console Outputs
-
-## Dashboard View
-
-
+![image](https://github.com/sejalmm06/Hello-World-Application/assets/129971092/2a154f5d-73ff-4e9d-9061-ddf089603910)
 
 
 ### Test Server Verification
 
 - Verified the application after successful deployment on the test server.
+![image](https://github.com/sejalmm06/Hello-World-Application/assets/129971092/3abf6b43-a8f9-4f51-816b-b1c3c35eaa0d)
 
 ### Production Server Verification
 
 - Verified the application after successful deployment on the production server.
+![image](https://github.com/sejalmm06/Hello-World-Application/assets/129971092/faa9b16e-a0d6-42b1-adcb-18ff0e58d962)
 
 
 ## Monitoring
